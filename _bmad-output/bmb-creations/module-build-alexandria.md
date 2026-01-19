@@ -12,10 +12,13 @@ stepsCompleted:
   - step-03-config
   - step-04-installer
   - step-05-agents
+  - step-06-workflows
+  - step-07-docs
+  - step-08-complete
 created: 2026-01-19
-status: IN_PROGRESS
+completed: 2026-01-19
+status: COMPLETE
 lastSession: 2026-01-19
-nextStep: step-06-workflows
 ---
 
 ## Build Progress
@@ -27,10 +30,9 @@ nextStep: step-06-workflows
 | 03 | module.yaml | ✅ Complété |
 | 04 | Installer | ✅ Complété |
 | 05 | Agents | ✅ Complété |
-| 05 | Workflows | ⏳ À faire |
-| 06 | README | ⏳ À faire |
-| 07 | TODO | ⏳ À faire |
-| 08 | Finalize | ⏳ À faire |
+| 06 | Workflows | ✅ Complété |
+| 07 | Documentation | ✅ Complété |
+| 08 | Finalize | ✅ Complété |
 
 ## Module Summary
 
@@ -56,16 +58,39 @@ Les workflows utilisent des **sub-agents spécialisés** pour :
 ```
 src/modules/alexandria/
 ├── agents/
+│   └── alexandria.spec.md
 ├── skills/
 ├── workflows/
 │   ├── discovery/
+│   │   └── discovery.spec.md
 │   ├── research/
+│   │   └── research.spec.md
 │   ├── context/
+│   │   └── context.spec.md
 │   ├── validate/
+│   │   └── validate.spec.md
 │   ├── index-docs/
+│   │   └── index-docs.spec.md
 │   ├── conventions/
+│   │   └── conventions.spec.md
 │   ├── adr/
+│   │   └── adr.spec.md
 │   └── sync-memory/
+│       └── sync-memory.spec.md
 └── _module-installer/
     └── platform-specifics/
 ```
+
+### Workflow Specs créés (Step 06)
+
+**Core Workflows (4 modes):**
+- `discovery` — Nouveau projet/feature → PROBLEM.md + CLAUDE.md + DISCOVERY.md
+- `research` — Recherche ponctuelle → Résultat capitalisé en mémoire
+- `context` — Reprise instantanée → Briefing 30 sec
+- `validate` — Vérification pré-implem → Checklist + warnings
+
+**Feature Workflows (4 support):**
+- `index-docs` — Docs externes → embeddings
+- `conventions` — Research → conventions.md
+- `adr` — Décision → ADR formaté
+- `sync-memory` — État → DB synchronisée
